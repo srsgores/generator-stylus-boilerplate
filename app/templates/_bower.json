@@ -1,6 +1,26 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+	"name":         "<%= sluggedAppName %>",
+	"version":      "0.0.1",
+	"authors": [
+		"<%=authorName %><<%= authorEmail %>>"
+	],
+	"description": "<%= description %>",
+	"main":        "app/index.html",
+	"keywords":    [
+		"<%= safeDescription %>"
+	],
+	"license":     "<%= license %>",
+	"homepage":    "<%= authorURL %>",
+	"ignore":      [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"app/bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		<% if (includejQuery) { %>"jquery": "*"<% } %>
+		<% if (includeModernizr) { %>,"modernizr": "*"<% } %>
+	}
 }
-

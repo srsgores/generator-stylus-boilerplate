@@ -9,7 +9,7 @@ describe("stylus-boilerplate:app", function () {
 	before(function (done) {
 		helpers.run(path.join(__dirname, "../app"))
 			.withOptions({skipInstall: true})
-			.withPrompts({someOption: true})
+			.withPrompts({includeModernizr: false})
 			.on("end", done);
 	});
 
@@ -24,12 +24,6 @@ describe("stylus-boilerplate:app", function () {
 		]);
 	});
 
-	it("creates the index html file", function () {
-		assert.file([
-			"index.html"
-		]);
-	});
-
 	it("creates browser config files", function () {
 		assert.file([
 			"favicon.ico",
@@ -38,12 +32,14 @@ describe("stylus-boilerplate:app", function () {
 			"humans.txt",
 			"apple-touch-icon-precomposed.png",
 			".htaccess",
+			"browserconfig.xml",
 			"crossdomain.xml"
 		]);
 	});
 
-	it("creates a 404", function () {
+	it("creates html pages", function () {
 		assert.file([
+			"index.html",
 			"404.html"
 		]);
 	});

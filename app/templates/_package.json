@@ -1,5 +1,13 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+	"name": "<%= sluggedAppName %>",
+	"description": "<%= description %>",
+	"licenses": [
+		{
+			"type": "<%= license %>"
+		}
+	],
+	"repository": "https://github.com/<%= sluggedAuthorName %>/<%= sluggedAppName %>",
+	"readme": "<%= safeDescription %>",
+	"version": "0.0.0",
+	"dependencies": {}
 }
