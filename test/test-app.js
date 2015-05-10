@@ -44,7 +44,7 @@ describe("stylus-boilerplate:app", function () {
 		]);
 	});
 
-	it("creates main stylus file", function () {
+	it("creates main stylus files", function () {
 		assert.file([
 			"styles/app.styl",
 			"styles/helpers/variables.styl",
@@ -53,6 +53,13 @@ describe("stylus-boilerplate:app", function () {
 			"styles/components",
 			"styles/layout/forms.styl",
 			"styles/layout/type.styl"
+		]);
+	});
+
+	it("Brings in animation component", function () {
+		assert.file([
+			"styles/components/animations/fading_entrances/fadeIn.styl",
+			"styles/components/animations/index.styl"
 		]);
 	});
 });

@@ -9,5 +9,8 @@
 	"repository": "https://github.com/<%= sluggedAuthorName %>/<%= sluggedAppName %>",
 	"readme": "<%= safeDescription %>",
 	"version": "0.0.0",
-	"dependencies": {}
+	"dependencies": {},
+	"devDependencies": {
+		"kouto-swiss": "^0.11.11"
+	}
 }

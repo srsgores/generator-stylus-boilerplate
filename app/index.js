@@ -209,6 +209,10 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath("styles/components"),
 				this.props
 			);
+			this.fs.copy(
+				this.templatePath("styles/components/animations/**/*"),
+				this.destinationPath("styles/components/animations")
+			);
 			this.fs.copyTpl(
 				this.templatePath("styles/layout/*"),
 				this.destinationPath("styles/layout"),
