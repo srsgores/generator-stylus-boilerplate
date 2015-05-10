@@ -43,19 +43,6 @@ module.exports = yeoman.generators.Base.extend({
 			},
 			{
 				type: "list",
-				name: "markup",
-				message: "What would you like to write markup with?",
-				"default": 1,
-				choices: [
-					"HTML",
-					"Jade"
-				],
-				filter: function (val) {
-					return val.toLowerCase();
-				}
-			},
-			{
-				type: "list",
 				name: "build",
 				message: "Which build tool do you want to use?",
 				"default": 1,
@@ -80,6 +67,18 @@ module.exports = yeoman.generators.Base.extend({
 				filter: function (val) {
 					return val.toLowerCase();
 				}
+			},
+			{
+				type: "confirm",
+				name: "useJade",
+				"default": true,
+				message: "Use jade instead of normal HTML?"
+			},
+			{
+				type: "confirm",
+				name: "useBuild",
+				"default": true,
+				message: "Would you like to minify/build your HTML, CSS, and scripts?"
 			},
 			{
 				type: "confirm",
@@ -114,8 +113,21 @@ module.exports = yeoman.generators.Base.extend({
 				"default": "somedomain.com"
 			},
 			{
+				type: "list",
 				name: "license",
 				message: "What's the copyright license?",
+				choices: [
+					"MIT",
+					"Copyright",
+					"Apache License 2.0",
+					"GNU General Public License 2.0",
+					"Artistic License 2.0",
+					"BSD 2-clause \"Simplified\" License",
+					"BSD 3-clause \"New\" or \"Revisited\" License",
+					"Creative Commons Zero 1.0 Universal",
+					"Eclipse Public License 1.0",
+					"Do What the Fuck You Want License (WTFPL)"
+				],
 				"default": "MIT"
 			}
 		];
@@ -133,6 +145,8 @@ module.exports = yeoman.generators.Base.extend({
 			this.props.sluggedAppName = s.slugify(this.appname);
 			this.props.sluggedAuthorName = s.slugify(this.authorName);
 			this.props.safeDescription = this.description.replace(/ /g, ", ");
+			this.props.currentDate = new Date().getDate();
+			this.props.currentYear = new Date().getYear();
 		},
 		configFiles: function () {
 			console.dir(this);
@@ -166,6 +180,57 @@ module.exports = yeoman.generators.Base.extend({
 			this.fs.copy(
 				this.templatePath("jshintrc"),
 				this.destinationPath(".jshintrc")
+			);
+		},
+
+		htmlFiles: function() {
+			if (this.props.useJade) {
+				this.fs.copyTpl(
+					this.templatePath("_index.jade"),
+					this.destinationPath("index.jade"),
+					this.props
+				);
+				this.fs.copyTpl(
+					this.templatePath("_layout.jade"),
+					this.destinationPath("layout.jade"),
+					this.props
+				);
+				this.fs.copyTpl(
+					this.templatePath("_404.jade"),
+					this.destinationPath("404.jade"),
+					this.props
+				);
+				this.fs.copy(this.templatePath("mixins"), this.destinationPath("mixins"));
+			}
+			else {
+				this.fs.copyTpl(
+					this.templatePath("_index.html"),
+					this.destinationPath("index.html"),
+					this.props
+				);
+				this.fs.copy(this.templatePath("404.html"), this.destinationPath("404.html"));
+			}
+		},
+
+		stylusFiles: function() {
+			this.fs.copyTpl(
+				this.templatePath("styles/app.styl"),
+				this.destinationPath("styles/app.styl"),
+				this.props
+			);
+			this.fs.copy(
+				this.templatePath("styles/helpers/*"),
+				this.destinationPath("styles/helpers")
+			);
+			this.fs.copyTpl(
+				this.templatePath("styles/components/*"),
+				this.destinationPath("styles/components"),
+				this.props
+			);
+			this.fs.copyTpl(
+				this.templatePath("styles/layout/*"),
+				this.destinationPath("styles/layout"),
+				this.props
 			);
 		}
 	},

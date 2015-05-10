@@ -1,11 +1,8 @@
 /*
-	stylus-boilerplate
-
-	integer-to-words.js
-
-	@author Sean Goresht
-
-	@note Created on 2015-01-02 by PhpStorm
+	@package: <%= appname %>
+	@author: <%= authorName %>
+	@www: <%= authorURL %>
+	@copyright: <%= license %> <%= currentDate %> <%= authorName %>
 */
 
 

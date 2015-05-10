@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title><%= appname %></title>
+		<meta name="description" content="<%= description %>">
+		<meta name="viewport" content="width=device-width, initial-scale=1"><% if (useBuild) { %>
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<!-- build:css styles/vendor.css -->
+		<!-- bower:css -->
+		<!-- endbower -->
+		<!-- endbuild -->
+		<!-- build:css(.tmp) styles/app.css -->
+		<% } %>
+		<link rel="stylesheet" href="styles/app.css"><% if (useBuild) { %>
+		<!-- endbuild --><% } %><% if (includeModernizr) { %>
+		<script src="bower_components/modernizr/modernizr.js"></script>
+		<% } %>
+	</head>
+	<body>
+		<header role="banner">
+			<h1><%= appname %></h1>
+			<p><%= description %></p>
+		</header>
+		<main role="main">
+
+		</main>
+	</body>
+	<footer role="contentinfo">
+		<small><%= license %> <time datetime="<%= currentDate %>"><%= currentYear %></time>, <%= authorName %></small>
+	</footer>
+</html>

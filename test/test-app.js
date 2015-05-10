@@ -9,7 +9,7 @@ describe("stylus-boilerplate:app", function () {
 	before(function (done) {
 		helpers.run(path.join(__dirname, "../app"))
 			.withOptions({skipInstall: true})
-			.withPrompts({includeModernizr: false})
+			.withPrompts({includeModernizr: false, useJade: false})
 			.on("end", done);
 	});
 
@@ -50,7 +50,9 @@ describe("stylus-boilerplate:app", function () {
 			"styles/helpers/variables.styl",
 			"styles/helpers/base.styl",
 			"styles/helpers/kouto-config.styl",
-			"components"
+			"styles/components",
+			"styles/layout/forms.styl",
+			"styles/layout/type.styl"
 		]);
 	});
 });
