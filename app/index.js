@@ -14,32 +14,14 @@ module.exports = yeoman.generators.Base.extend({
 
 		// Have Yeoman greet the user.
 		this.log(yosay(
-			"Welcome to the super " + chalk.red("StylusBoilerplate") + " generator!"
+			"Welcome to the super " + chalk.red("StylusBoilerplate") + " generator!  We'll get you up and running with an actually decent project in just a few seconds..."
 		));
 
 		var prompts = [
 			{
 				name: "appname",
-				message: "What's the name of your app?",
+				message: "What's the name of your app/site?",
 				"default": this.appname
-			},
-			{
-				type: "list",
-				name: "script",
-				"default": 1,
-				message: "What would you like to write scripts with?",
-				choices: [
-					"JavaScript",
-					"CoffeeScript"
-				],
-				filter: function (val) {
-					var filterMap;
-					filterMap = {
-						JavaScript: "js",
-						CoffeeScript: "coffee"
-					};
-					return filterMap[val];
-				}
 			},
 			{
 				type: "list",
@@ -57,7 +39,7 @@ module.exports = yeoman.generators.Base.extend({
 			{
 				type: "list",
 				name: "testFramework",
-				"default": 1,
+				"default": 0,
 				message: "Which testing framework do you want to use?",
 				choices: [
 					"Mocha",
@@ -128,7 +110,7 @@ module.exports = yeoman.generators.Base.extend({
 					"Eclipse Public License 1.0",
 					"Do What the Fuck You Want License (WTFPL)"
 				],
-				"default": "MIT"
+				"default": "Do What the Fuck You Want License (WTFPL)"
 			}
 		];
 

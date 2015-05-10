@@ -1,8 +1,8 @@
 {
   "name": "generator-stylus-boilerplate",
-  "version": "0.0.0",
-  "description": "Yeoman generator",
-  "license": "MIT",
+  "version": "0.0.1",
+  "description": "Yeoman Generator for Stylus Boilerplate",
+  "license": "WTFPL",
   "main": "app/index.js",
   "repository": "srsgores/generator-stylus-boilerplate",
   "author": {
