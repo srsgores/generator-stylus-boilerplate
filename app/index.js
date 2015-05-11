@@ -218,6 +218,13 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath("styles/layout"),
 				this.props
 			);
+		},
+
+		watcherTasks: function() {
+			var isWin = /^win/.test(process.platform);
+			if (isWin) {
+				this.fs.copy(this.templatePath("watcherTasks.xml"), this.destinationPath(".idea/watcherTasks.xml"))
+			}
 		}
 	},
 

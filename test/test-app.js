@@ -62,4 +62,11 @@ describe("stylus-boilerplate:app", function () {
 			"styles/components/animations/index.styl"
 		]);
 	});
+
+	it("Generates WebStorm watcher tasks for Windows", function () {
+		assert.file([
+			".idea",
+			".idea/watcherTasks.xml"
+		]);
+	});
 });
